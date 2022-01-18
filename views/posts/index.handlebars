@@ -1,0 +1,25 @@
+<h3>Posts</h3>
+<script src="/scripts/confirmDelete.js"></script>
+<a href="/posts/add"><button class="btn btn-success mt-2">Adicionar post</button></a>
+
+{{#each posts}}
+<div class="card mt-4">
+    <div class="card-body">
+        <a href="/posts/edit/{{this._id}}"><button class="btn btn-success" style="float: right;">Editar</button></a>
+       <button class="btn btn-danger btnDelete" style="float: right; margin-right: 1rem" onclick="deleteCategory('{{this.titulo}}', '{{this._id}}', 'post')">Excluir</button>
+
+        <h4>{{this.titulo}}</h4>
+        <p>Descrição: {{this.descricao}}</p>  
+        <small>Criado em: {{this.date}}</small><br>
+        <small>Categoria: {{this.categoria.nome}}</small>
+    </div>
+
+            <div class="container divDelete{{this._id}}" id="divDelete{{this._id}}">
+            </div>
+            
+
+</div>
+{{else}}
+<h4 class="mt-4">Nenhuma postagem encontrada!</h4>
+{{/each}}
+

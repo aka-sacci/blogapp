@@ -1,0 +1,25 @@
+<div class="jumbotron mb-5">
+  <h1 class="display-4">Bem vindo ao meu Blog NodeJS!</h1>
+  <p class="lead">Esse blog foi criado utilizando NodeJS e MongoDB! É minha primeira aplicação funcional que usa tais tecnologias. </p>
+  <hr class="my-4">
+  <p>Desenvolvido durante o curso gratuíto de Node disponibilizado pelo <a href="https://www.youtube.com/channel/UC_issB-37g9lwfAA37fy2Tg" target="_blank">Victhor Lima - Guia do Programador</a>.
+  Devido à atualizações nas tecnologias utilizadas e algumas preferências da minha pessoa, foram feitas mudanças/adaptações no projeto demonstado pelo Victhor, porém o escopo e funcionalidades são os mesmos.</p>
+  <p class="lead">
+    <a class="btn btn-success btn-lg" href="https://www.youtube.com/playlist?list=PLJ_KhUnlXUPtbtLwaxxUxHqvcNQndmI4B" target="_blank" role="button">Acessar a playlist</a>
+  </p>
+  <hr>
+</div>
+
+
+<h3>Postagens recentes:</h3><br>
+{{#each posts}}
+<div class="card mb-4">
+    <div class="card-body">
+    <h4>{{this.titulo}}</h4>
+    <p style="text-align: justify; white-space: pre-line">{{this.descricao}}</p>
+    <a href="/posts/view/{{this.slug}}" class="btn btn-primary">Ver mais</a>
+    </div>
+</div>
+{{else}}
+<h4>Não há postagens!</h4>
+{{/each}}

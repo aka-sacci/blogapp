@@ -1,0 +1,28 @@
+<script src="/scripts/validPassword.js"></script>
+{{#each errors}}
+    <div class="alert alert-danger">{{this.texto}}</div>
+{{/each}}
+<h3>Registro de usuário</h3>
+<div class="card-body">
+<form action="/user/registro/action" method="post">
+<div class="mb-3">
+  <label for="nome" class="form-label">Nome:</label>
+    <input type="text" class="form-control" id="nome" name="nome" placeholder="Seu Nome" required>
+</div>
+<div class="mb-3">
+  <label for="email" class="form-label">Email:</label>
+    <input type="email" class="form-control" id="email" name="email" placeholder="Seu email" required>
+</div>
+<div class="mb-3">
+  <label for="senha" class="form-label">Senha:</label>
+    <input type="password" class="form-control" id="senha" name="senha" placeholder="Sua senha" oninput="validPassword(this.id, 'confirmarSenha')" required>
+</div>
+<div class="mb-3">
+  <label for="confirmarSenha" class="form-label">Confirmar senha:</label>
+    <input type="password" class="form-control" id="confirmarSenha" name="confirmarSenha" placeholder="Confirmação da sua senha" oninput="validPassword('senha', this.id)" required>
+</div>
+<div class="divConfirmacao">
+</div>
+ <button type="submit" class="btn btn-success mt-2" id="btnSubmit" disabled>Cadastrar</button>
+</form>
+</div>

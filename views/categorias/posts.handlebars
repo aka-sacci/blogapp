@@ -1,0 +1,12 @@
+<h3>Postagens sobre {{categoria.nome}}:</h3><br>
+{{#each posts}}
+<div class="card mb-4">
+    <div class="card-body">
+    <h4>{{this.titulo}}</h4>
+    <p style="text-align: justify; white-space: pre-line">{{this.descricao}}</p>
+    <a href="/posts/view/{{this.slug}}" class="btn btn-primary">Ver mais</a>
+    </div>
+</div>
+{{else}}
+<h4>Não há postagens!</h4>
+{{/each}}

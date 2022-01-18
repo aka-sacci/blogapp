@@ -1,0 +1,21 @@
+<script src="/scripts/confirmDelete.js"></script>
+<h3>Categorias salvas</h3>
+<hr>
+<a href="/admin/categorias/add"><button class="btn btn-success">Nova categoria</button></a>
+{{#each categorias}}
+<div class="card mt-4">
+    <div class="card-body">
+        <h4>{{this.nome}}</h4>
+        <small>Slug: {{this.slug}}</small><br>   
+        <small>Criado em: {{this.date}}</small>
+        <a href="/admin/categorias/edit/{{this._id}}"><button class="btn btn-success" style="float: right;">Editar</button></a>
+       <button class="btn btn-danger btnDelete" style="float: right; margin-right: 1rem" onclick="deleteCategory('{{this.nome}}', '{{this._id}}', 'categoria')">Excluir</button>
+    </div>
+
+            <div class="container divDelete{{this._id}}">
+            </div>
+
+</div>
+{{else}}
+<h4 class="mt-4">Nenhuma categoria registrada!</h4>
+{{/each}}

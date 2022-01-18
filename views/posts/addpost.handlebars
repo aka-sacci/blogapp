@@ -1,0 +1,33 @@
+{{#each errors}}
+    <div class="alert alert-danger">{{this.texto}}</div>
+{{/each}}
+<h3>Adição de post</h3>
+<div class="card-body">
+<form action="/posts/add/action" method="post">
+<div class="mb-3">
+  <label for="titulo" class="form-label">Título:</label>
+    <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Título do post" required>
+</div>
+<div class="mb-3">
+  <label for="slug" class="form-label">Slug:</label>
+    <input type="text" class="form-control" id="slug" name="slug" placeholder="Slug do post" required>
+</div>
+<div class="mb-3">
+  <label for="descricao" class="form-label">Descrição:</label>
+    <input type="text" class="form-control" id="descricao" name="descricao" placeholder="Descrição do post" required>
+</div>
+<div class="form-floating mb-3">
+  <textarea class="form-control" placeholder="Conteúdo da postagem" id="conteudo" name="conteudo" style="height: 100px" required></textarea>
+  <label for="conteudo">Conteúdo da postagem</label>
+</div>
+<label for="categoria" class="mb-2">Categoria:</label>
+<select class="form-select" aria-label="Categoria da postagem" name="categoria" id="categoria">
+ {{#each categorias}}
+ <option value="{{this._id}}">{{this.nome}}</option>
+ {{else}}
+  <option value="">Nenhuma categoria registrada! Cadastre uma categoria o quanto antes!</option>
+ {{/each}}
+</select>
+ <button type="submit" class="btn btn-success mt-3">Criar post</button>
+</form>
+</div>
